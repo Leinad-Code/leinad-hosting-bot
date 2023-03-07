@@ -1,0 +1,36 @@
+{
+  "name": "leinad-bot---v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/voice": "^0.14.0",
+    "@sundawning/pm2-async": "^1.0.0",
+    "adm-zip": "^0.5.10",
+    "better-sqlite3": "^7.6.2",
+    "child_process": "^1.0.2",
+    "discord-player": "^5.3.1",
+    "discord.js": "^14.3.0",
+    "extract": "^1.0.0",
+    "extract-zip": "^2.0.1",
+    "filesize": "^10.0.6",
+    "folder-size": "^0.1.0",
+    "ip": "^1.1.8",
+    "mercadopago": "^1.5.14",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.38",
+    "mysql": "^2.18.1",
+    "pm2": "^5.2.2",
+    "pm2-axon": "^4.0.1",
+    "quick.db": "^9.0.6",
+    "shelljs": "^0.8.5",
+    "sourcebin": "^5.0.0",
+    "util": "^0.12.5",
+    "wio.db": "^4.0.22"
+  }
+}

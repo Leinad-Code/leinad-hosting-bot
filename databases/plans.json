@@ -1,0 +1,16 @@
+{
+    "free": {
+        "max_bot": 1,
+        "max_storage": 5,
+        "max_ram": 128,
+        "max_processador": 1,
+        "auto_restart": false
+    },
+    "medium": {
+        "max_bot": 10,
+        "max_storage": 5,
+        "max_ram": 1000,
+        "max_processador": 1,
+        "auto_restart": true
+    }
+}

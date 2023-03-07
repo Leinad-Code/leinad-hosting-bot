@@ -1,0 +1,5 @@
+tiktok:Você pode me seguir no tiktok sabia?|nhttps://tiktok.com/@daniel_fivem
+youtube:Você pode me seguir no yotube sabia?|nhttps://youtube.com/@danielfivem
+ajuda:Você está precisando de ajuda? Fale conosco <#1039213292872269845>
+help:Você está precisando de ajuda? Fale conosco <#1039213292872269845>
+site:https://danielsilva.site

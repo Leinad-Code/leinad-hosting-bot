@@ -1,0 +1,23 @@
+{
+    "client": {
+        "token": "MTA4MTAyNTUzNjUxMzU1MjQ2NA.GDa87N.38YElnehDVQiqBH4Lv2L6C-JRRgYlW6Waqi7bo",
+        "embed": "016bdb",
+        "channel_bugs": "1045226514964287509",
+        "owner_id": "1009577884786098247",
+        "delay_commands": true
+    },
+    "configurations": {
+        "category_up": "1081685480212549672",
+        "channel_commands": "1081024599900295199"
+    },
+    "roles_configurations": {
+        "role_join_member": "1081511562235363349"
+    },
+    "embed_color": {
+        "embed_primary": "#ff00ff",
+        "embed_invisible": "#2f3136",
+        "embed_black": "#000",
+        "embed_success": "#00ff00",
+        "embed_error": "#ff0000"
+    }
+}
