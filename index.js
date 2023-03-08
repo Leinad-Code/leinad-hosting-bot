@@ -3,6 +3,7 @@ const { joinVoiceChannel } = require('@discordjs/voice')
 const config = require("./config.json");
 const fs = require('fs');
 const { JsonDatabase } = require("wio.db");
+const dialogflow = require('dialogflow');
 
 // Database
 global.dbPlans = new JsonDatabase({

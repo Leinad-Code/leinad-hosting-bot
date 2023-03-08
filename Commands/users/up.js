@@ -144,6 +144,41 @@ module.exports = {
             await new Promise(resolve => setTimeout(resolve, 100));
         }
 
+        let ram_available = plans_db.max_ram;
+        let ram_using = 0;
+
+        if (bots_db && bots_db.length > 0) {
+            for (let i = 0; i < bots_db.length; i++) {
+                ram_using += bots_db[i].ram;
+            }
+
+            ram_available -= ram_using;
+        }
+
+
+        await msg.edit({
+            content: `${interaction.user}`,
+            embeds: [
+                new Discord.EmbedBuilder()
+                    .setColor(config.embed_color.embed_invisible)
+                    .setDescription(`<:ram:1081549712513044520> Qual a quantidade de  \`memoria ram\` você deseja adicionar a esta aplicação? [\`${ram_available}MB disponível\`]`)
+            ]
+        })
+
+        const collector_ram = channel.createMessageCollector({ filter });
+        collector_ram.on('collect', (interactionReply) => {
+            const regex = /[^0-9]/;
+            if (regex.test(interactionReply.content) || parseInt(interactionReply.content) > ram_available) return interactionReply.delete() + interactionReply.channel.send('<a:error:1081135065389600778> | Insira uma quantidade válida!').then((msg) => { setTimeout(() => { msg.delete() }, 1500); })
+            if (parseInt(interactionReply.content) < 50) return interactionReply.delete() + interactionReply.channel.send('<a:error:1081135065389600778> | A quantidade mínima de memória ram é \`50MB\`, para não ter problemas em sua aplicação!').then((msg) => { setTimeout(() => { msg.delete() }, 1500); })
+            bot.ram = parseInt(interactionReply.content);
+            interactionReply.delete();
+            collector_ram.stop();
+        })
+
+        while (!bot.ram) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+
         await msg.edit({
             content: `${interaction.user}`,
             embeds: [
@@ -153,7 +188,8 @@ module.exports = {
                     .addFields(
                         { name: '<:atendente:1081136513594703872> Nome da aplicaçao', value: `\`${bot.name}\`` },
                         { name: '<:id:1081380844280750202> ID da aplicação', value: `\`${bot.id}\`` },
-                        { name: '<:js:1081136714027905024> Arquivo principal', value: `\`${bot.index}\`` }
+                        { name: '<:js:1081136714027905024> Arquivo principal', value: `\`${bot.index}\`` },
+                        { name: '<:ram:1081549712513044520> Memória RAM', value: `\`${bot.ram}MB\`` }
                     )
                     .setFooter({ text: 'Caso alguma dessa informações esteja incorretas, aguarde e tente novamente!' }),
                 new Discord.EmbedBuilder()
@@ -209,7 +245,7 @@ module.exports = {
                     await verifyFiles(extractedPath);
 
                     bot.directory = zipPath;
-
+                    bot.language = 'javascript';
                     dbBots.push(`${interaction.user.id}`, bot)
 
                     const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';

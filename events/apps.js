@@ -4,7 +4,7 @@ const childProcess = require('child_process');
 const pm2 = require("@sundawning/pm2-async");
 const moment = require('moment');
 const path = require('path')
-const { downloadAttachment, extractZip, deleteFile, verifyFiles, getFolderSize, moveFolderContents } = require('../functions/Scripts');
+const { downloadAttachment, extractZip, deleteFile, deleteFolder, verifyFiles, getFolderSize, moveFolderContents } = require('../functions/Scripts');
 
 module.exports = {
     name: 'apps',
@@ -649,7 +649,8 @@ module.exports = {
                         return;
                     }
 
-                    dbBots.set(`${interaction.user.id}`, bots_db.filter(app => app.id === `${this_bot.id}`))
+                    dbBots.set(`${interaction.user.id}`, bots_db.filter(app => app.id !== `${this_bot.id}`))
+                    deleteFolder(this_bot.directory);
 
                     await submitted.deferUpdate({ ephemeral: true });
                     await submitted.editReply({
@@ -660,6 +661,8 @@ module.exports = {
                         ],
                         components: []
                     })
+
+                    return collector.stop();
 
                     // const message = await interaction.channel.messages.cache.get(interaction.message.id);
 

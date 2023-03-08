@@ -58,6 +58,20 @@ async function deleteFile(filePath) {
     });
 }
 
+async function deleteFolder(folderPath) {
+    if (fs.existsSync(folderPath)) {
+        fs.readdirSync(folderPath).forEach(function (file, index) {
+            const curPath = path.join(folderPath, file);
+            if (fs.lstatSync(curPath).isDirectory()) { // se for diretório, chama a função recursivamente
+                deleteFolder(curPath);
+            } else { // se for arquivo, exclui
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(folderPath); // exclui a pasta vazia
+    }
+}
+
 async function verifyFiles(outputPath) {
     try {
         // Verifica se existem arquivos .js na pasta outputPath
@@ -114,4 +128,4 @@ async function getFolderSize(folderPath) {
     return (await Promise.all(stats)).reduce((accumulator, { size }) => accumulator + size, 0);
 }
 
-module.exports = { downloadAttachment, extractZip, deleteFile, verifyFiles, runCommand, getFolderSize, moveFolderContents }
+module.exports = { downloadAttachment, extractZip, deleteFile, verifyFiles, deleteFolder, runCommand, getFolderSize, moveFolderContents }
