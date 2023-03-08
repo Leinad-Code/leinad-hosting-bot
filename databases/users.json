@@ -1,29 +1,47 @@
 {
     "437401144210227210": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "1009577884786098247": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "1037799236772835480": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "555158309720686596": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "937031277457080401": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "938492493195014255": {
-        "plan": "medium"
+        "plan": "medium",
+        "blacklist": false,
+        "private_profile": false
     },
     "1058746345973878787": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "229811046586515456": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     },
     "1023044334301495336": {
-        "plan": "free"
+        "plan": "free",
+        "blacklist": false,
+        "private_profile": false
     }
 }

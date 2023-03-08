@@ -81,7 +81,9 @@ client.on('guildMemberAdd', (interaction) => {
     if (dbUsers.get(`${interaction.user.id}`)) return;
 
     dbUsers.set(`${interaction.user.id}`, {
-        plan: `free`
+        plan: `free`,
+        blacklist: false,
+        private_profile: false
     })
 })
 
