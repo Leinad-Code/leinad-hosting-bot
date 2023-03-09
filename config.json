@@ -11,7 +11,8 @@
         "channel_commands": "1081024599900295199"
     },
     "roles_configurations": {
-        "role_join_member": "1081511562235363349"
+        "role_join_member": "1081511562235363349",
+        "role_support": "1082981114144108616"
     },
     "embed_color": {
         "embed_primary": "#ff00ff",

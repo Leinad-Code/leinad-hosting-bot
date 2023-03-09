@@ -2,46 +2,56 @@
     "437401144210227210": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "1009577884786098247": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "english",
+        "description": "🔰 Desenvolvimento de bot's"
     },
     "1037799236772835480": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "555158309720686596": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "937031277457080401": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "938492493195014255": {
         "plan": "medium",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "1058746345973878787": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "229811046586515456": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     },
     "1023044334301495336": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false
+        "private_profile": false,
+        "language": "portugues"
     }
 }

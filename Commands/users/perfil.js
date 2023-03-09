@@ -18,6 +18,16 @@ module.exports = {
         const user = interaction.options.getUser('user') || interaction.user;
         const user_db = dbUsers.get(`${user.id}`);
 
+        if (user.bot) return interaction.reply({
+            embeds: [
+                new Discord.EmbedBuilder()
+                    .setColor(config.embed_color.embed_invisible)
+                    .setAuthor({ name: `${user.tag} (${user.id})`, iconURL: `${user.displayAvatarURL({ dynamic: true })}` })
+                    .setDescription(`<a:error:1081135065389600778> | Lamento informar que aplicativos robôs, como o ${user}, não possuem um perfil associado a eles.`)
+            ],
+            ephemeral: true
+        })
+
         if (user.id !== `${interaction.user.id}` && user_db.private_profile) return interaction.reply({
             embeds: [
                 new Discord.EmbedBuilder()
@@ -39,20 +49,37 @@ module.exports = {
             }
         }
 
+        user["member"] = interaction.guild.members.cache.get(user.id);
+
+        let language_text = {}
+
+        switch (user_db.language) {
+            case "portugues":
+                language_text = { text: 'Português', flag: '🇧🇷' }
+                break;
+            case "english":
+                language_text = { text: 'English', flag: '🇺🇸' }
+                break;
+            case "espanol":
+                language_text = { text: 'Espanõl', flag: '🇪🇸' }
+                break;
+        }
+
         await interaction.reply({
             embeds: [new Discord.EmbedBuilder()
                 .setColor(config.embed_color.embed_invisible)
                 .setAuthor({ name: `${user.tag} (${user.id})`, iconURL: `${user.displayAvatarURL({ dynamic: true })}` })
                 .setThumbnail(`${user.displayAvatarURL({ dynamic: true })}`)
+                .setDescription(`${user_db.description ? user_db.description : '📰 Sem nada a diser!'}`)
                 .addFields(
                     { name: '<:id:1081380844280750202> Plano', value: `\`${user_db.plan.charAt(0).toUpperCase() + user_db.plan.slice(1).toLowerCase()}\``, inline: true },
-                    { name: '<:config:1081562707242795088> Idioma', value: `\`Português\``, inline: true },
+                    { name: `${language_text.flag} Idioma`, value: `\`${language_text.text}\``, inline: true },
                     { name: '🚫 Blacklist', value: `\`${user_db.blacklist ? 'Sim' : 'Não'}\``, inline: true },
-                    { name: '🤖 Aplicações', value: `\`${bots_db && bots_db.length > 0 ? bots_db.length : 0} app's\``, inline: true },
+                    { name: '🤖 Aplicações', value: `\`${bots_db && bots_db.length > 0 ? bots_db.length : 0}/${plans_db.max_bot} app's\``, inline: true },
                     { name: '🌐 Websites', value: `\`Não disponível\``, inline: true },
                     { name: '<:ram:1081549712513044520> Memória RAM', value: `\`${ram_using}/${plans_db.max_ram}MB\``, inline: true },
                 )
-                .setFooter({ text: `Feito com muito ❤️ por ${interaction.guild.name}` })
+                .setFooter({ text: `${user.member.roles.cache.get(config.roles_configurations.role_support) ? `Este usuário é verificado e faz parte da equipe ${interaction.guild.name}` : `Feito com muito ❤️ por ${interaction.guild.name}`}`, iconURL: `${interaction.guild.iconURL({ dynamic: true })}` })
             ],
             ephemeral: true
         })

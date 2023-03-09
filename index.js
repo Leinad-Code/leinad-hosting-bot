@@ -83,7 +83,8 @@ client.on('guildMemberAdd', (interaction) => {
     dbUsers.set(`${interaction.user.id}`, {
         plan: `free`,
         blacklist: false,
-        private_profile: false
+        private_profile: false,
+        language: 'portugues'
     })
 })
 
@@ -122,3 +123,6 @@ client.on('interactionCreate', require('./events/apps').execute)
 
 //Member join
 client.on('guildMemberAdd', require('./events/welcome').execute)
+
+//Settings profile
+client.on('interactionCreate', require('./events/settings').execute)    
