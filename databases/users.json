@@ -8,9 +8,9 @@
     "1009577884786098247": {
         "plan": "free",
         "blacklist": false,
-        "private_profile": false,
+        "private_profile": true,
         "language": "english",
-        "description": "🔰 Desenvolvimento de bot's"
+        "description": "cu"
     },
     "1037799236772835480": {
         "plan": "free",
@@ -37,7 +37,7 @@
         "language": "portugues"
     },
     "1058746345973878787": {
-        "plan": "free",
+        "plan": "medium",
         "blacklist": false,
         "private_profile": false,
         "language": "portugues"
